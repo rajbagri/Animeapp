@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "443818427293",
+    "project_id": "anime-app-e3fce",
+    "storage_bucket": "anime-app-e3fce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443818427293:android:ea30f67441bd940e706574",
+        "android_client_info": {
+          "package_name": "com.rajbagri.animeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "443818427293-030nb23hv78camacqo70b76cb2du387c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rajbagri.animeapp",
+            "certificate_hash": "40cb073ee66da4eadf1ebace69110b7a2bca7f7c"
+          }
+        },
+        {
+          "client_id": "443818427293-e3i5hiu0vjtrfhmkp1eoa2jh0i5dm79a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAog9bCwGAYIhT2cfM42Z7bXkh2pr39t_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "443818427293-e3i5hiu0vjtrfhmkp1eoa2jh0i5dm79a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
