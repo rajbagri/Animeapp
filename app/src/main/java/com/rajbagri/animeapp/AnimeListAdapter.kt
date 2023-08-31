@@ -1,3 +1,5 @@
+package com.rajbagri.animeapp
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -5,9 +7,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.rajbagri.animeapp.AnimeList
-import com.rajbagri.animeapp.OnItemClickListener
-import com.rajbagri.animeapp.R
 import com.squareup.picasso.Picasso
 
 class AnimeListAdapter(
@@ -17,14 +16,17 @@ class AnimeListAdapter(
     private val itemClickListener: OnItemClickListener
 ) : RecyclerView.Adapter<AnimeListAdapter.heroViewHolder>() {
 
+
+
+    private val originalList: ArrayList<AnimeList> = ArrayList(hero)
+
     inner class heroViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val heroImage = itemView.findViewById<ImageView>(R.id.image_view_character_list)
         val heroName: TextView = itemView.findViewById(R.id.text_view_character_list)
 
         init {
-            itemView.setOnClickListener {
-                itemClickListener.onItemClick(adapterPosition, hero[adapterPosition].img)
-            }
+            itemView.setOnClickListener { itemClickListener.onItemClick(bindingAdapterPosition, hero[bindingAdapterPosition].img) }
+
         }
     }
 
@@ -38,10 +40,25 @@ class AnimeListAdapter(
         holder.heroName.text = hero[position].charName
         picasso.load(imageUrl).
         into(holder.heroImage)
-
     }
 
     override fun getItemCount(): Int {
         return hero.size
     }
+
+    fun filter(query: String?) {
+        hero.clear()
+        if (query.isNullOrEmpty()) {
+            hero.addAll(originalList)
+        } else {
+            val filterPattern = query.lowercase().trim()
+            originalList.forEach { item ->
+                if (item.charName.lowercase().contains(filterPattern)) {
+                    hero.add(item)
+                }
+            }
+        }
+    }
+
+
 }
